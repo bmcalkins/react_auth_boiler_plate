@@ -1,6 +1,6 @@
 
 import './App.css';
-import { Component } from 'react'
+import React, { Component } from 'react'
 import SignupForm from './SignupForm'
 import LoginForm from './LoginForm'
 
@@ -17,8 +17,8 @@ class App extends Component {
     fetch(baseUrl + "users", {
       method: "POST",
       headers: {
-        "Accept": "application/json",
-        "Content_Type": "application/json"
+        "Accept": 'application/json',
+        "Content-Type": 'application/json'
       },
       body: JSON.stringify({
         user: {

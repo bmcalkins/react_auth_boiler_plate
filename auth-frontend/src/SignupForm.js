@@ -1,4 +1,4 @@
-import {Component} from 'react'
+import React, {Component} from 'react'
 
 export default class SignUpForm extends Component {
     state = {
@@ -29,7 +29,8 @@ export default class SignUpForm extends Component {
                 <label>Username</label>
                 <input name="username" value={this.state.username} onChange={this.handleChange} />
                 <label>Password</label>
-                <input type="password" value={this.state.password} onChange={this.handleChange} />
+                <input type="password" value={this.state.password} name="password" onChange={this.handleChange} />
+
                 <input type="submit" value="Sign Up" />
             </form>
         )

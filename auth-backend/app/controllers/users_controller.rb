@@ -6,13 +6,15 @@ class UsersController < ApplicationController
     end 
 
     def login
-        @user = User.find_by(username: params [:user][:username])
+        @user = User.find_by(username: params[:user][:username])
+
         if @user && @user.authenticate(params[:user][:password])
             @token = JWT.encode({user_id: @user.id}, Rails.application.secrets.secret_key_base[0])
 
             render json: {user: @user, token: @token} 
         else
-            render json: {error: "Invalid Crednetials"}, status: :unathorized 
+            render json: {error: "Invalid Crednetials"}, status: :unauthorized 
+        end 
     end 
 
     private
